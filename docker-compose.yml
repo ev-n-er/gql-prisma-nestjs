@@ -1,0 +1,28 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - ./.env
+    volumes:
+      - ./:/dist
+      - ~/.ssh/:/home/node/.ssh/:ro
+      - ~/.npmrc:/home/node/.npmrc
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "default"
+      POSTGRES_DB: db
+    volumes:
+      - ./pgdata:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "db", "-U", "postgres" ]
+      timeout: 5s
+      retries: 10

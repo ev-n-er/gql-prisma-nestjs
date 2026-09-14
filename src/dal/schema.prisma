@@ -1,0 +1,56 @@
+
+
+model Profile {
+  id String @id @default(uuid(7))
+  name String
+  description String
+  links Link[]
+  skills Skill[]
+  workplaces Workplace[]
+  projects Project[]
+}
+
+enum LinkType {
+  GITHUB
+  LINKEDIN
+  FACEBOOK
+}
+
+model Link {
+  profileId String
+  type      LinkType
+  content   String
+  
+  profile   Profile    @relation(fields: [profileId], references: [id])
+
+  @@id([profileId, type])
+}
+
+model Skill {
+  id String @id @default(uuid(7))
+  profileId String
+  content   String
+  
+  profile   Profile    @relation(fields: [profileId], references: [id])
+}
+
+model Project {
+  id String @id @default(uuid(7))
+  profileId String
+  name   String
+  link   String?
+  
+  profile   Profile    @relation(fields: [profileId], references: [id])
+}
+
+model Workplace {
+  id String @id @default(uuid(7))
+  profileId String
+  name   String
+  role   String
+  from Date 
+  to   Date?
+  achievements   String
+  
+  profile   Profile    @relation(fields: [profileId], references: [id])
+}
