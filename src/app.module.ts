@@ -10,8 +10,8 @@ import { ProfileModule } from './modules/profile/profile.module.ts';
     ProfileModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      graphiql: false,
+      autoSchemaFile: true,
+      graphiql: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
   ],

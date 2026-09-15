@@ -18,8 +18,8 @@ AppModule = __decorate([
             ProfileModule,
             GraphQLModule.forRoot({
                 driver: ApolloDriver,
-                autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-                graphiql: false,
+                autoSchemaFile: true,
+                graphiql: true,
                 plugins: [ApolloServerPluginLandingPageLocalDefault()],
             }),
         ],
