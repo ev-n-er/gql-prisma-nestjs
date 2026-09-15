@@ -145,6 +145,5 @@ vite.config.ts.timestamp-*
 node_modules/
 dist/
 .env
-src/schema.gql
 
 pgdata/
