@@ -1,5 +1,5 @@
 {
-  "name": "my-nest-api",
+  "name": "gql-prisma-nestjs",
   "private": true,
   "packageManager": "npm@10.9.0",
   "type": "module",
