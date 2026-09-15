@@ -10,10 +10,10 @@
     "build": "nest build",
     "contract:emit": "prisma contract emit",
     "db:init": "prisma db init",
-    "db:seed": "node dist/src/dal/seed.js",
+    "db:seed": "node dist/dal/seed.js",
     "db:verify": "prisma db verify",
     "dev": "nest start --watch",
-    "start": "npm run build && npm run contract:emit && npm run db:init && node dist/src/main.js"
+    "start": "npm run build && npm run contract:emit && npm run db:init && node dist/main.js"
   },
   "dependencies": {
     "@apollo/server": "^5.5.1",
@@ -31,6 +31,7 @@
     "graphql": "^16.14.2",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
+    "temporal-polyfill": "^1.0.5",
     "ts-morph": "^28.0.0"
   },
   "devDependencies": {

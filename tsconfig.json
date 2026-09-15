@@ -14,7 +14,9 @@
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["ESNext.Temporal"],
+    "rootDir": "./src",
+    "outDir": "dist",
+    
     "types": [
       "node"
     ]

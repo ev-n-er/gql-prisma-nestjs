@@ -1,3 +1,4 @@
+import { Temporal } from 'temporal-polyfill/full'
 import { connectDatabase, db } from "./db.ts";
 
 const profiles = [
